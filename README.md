@@ -19,6 +19,21 @@ To demonstrate real-world cloud engineering concepts including:
 
 Images uploaded to Azure Blob Storage automatically trigger Azure Functions, which process the images and generate thumbnails.
 
+
+Image Upload
+      ↓
+Azure Blob Storage
+      ↓
+Azure Function Trigger
+      ↓
+Image Processing
+      ↓
+Thumbnail Generation
+      ↓
+Metadata Storage
+      ↓
+Azure Monitor
+
 ## Azure Services Used
 
 * Azure Blob Storage
@@ -26,6 +41,3 @@ Images uploaded to Azure Blob Storage automatically trigger Azure Functions, whi
 * Azure Monitor
 * Application Insights
 
-## Author
-
-Anita Khanayo

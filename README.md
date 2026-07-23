@@ -41,3 +41,5 @@ Azure Monitor
 * Azure Monitor
 * Application Insights
 
+
+WTC-XB2JSFAL

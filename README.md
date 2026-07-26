@@ -1,4 +1,4 @@
-# ☁️ Automated Event-Driven Image Processing Pipeline on Microsoft Azure
+ Automated Event-Driven Image Processing Pipeline on Microsoft Azure
 
 ![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?logo=microsoftazure&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk)
@@ -94,14 +94,14 @@ Azure Monitor
 
  Features
 
-- ✅ Serverless Architecture
-- ✅ Event-Driven Processing
-- ✅ Automatic Thumbnail Generation
-- ✅ Azure Blob Storage Integration
-- ✅ Java Azure Functions
-- ✅ Azure Monitor Logging
-- ✅ Scalable Cloud Workflow
-- ✅ Automated Image Processing
+- Serverless Architecture
+- Event-Driven Processing
+- Automatic Thumbnail Generation
+- Azure Blob Storage Integration
+- Java Azure Functions
+- Azure Monitor Logging
+- Scalable Cloud Workflow
+- Automated Image Processing
 
 
 

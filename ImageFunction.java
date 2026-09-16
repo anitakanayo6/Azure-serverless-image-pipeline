@@ -5,3 +5,4 @@
 // createThumbnail() - resize the image to thumbnail 
 // uploadThumbnail() - upoload the thumbnail in the blob storage container
 
+// wwrite Tests for the actualy code for triggering

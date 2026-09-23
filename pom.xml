@@ -38,6 +38,13 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.11.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -62,7 +69,31 @@
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-functions-maven-plugin</artifactId>
-                <version>${azure.functions.maven.plugin.version}</version>
+                <version>1.37.1</version>
+
+                <configuration>
+                    <appName>ImageFunction-run</appName>
+                    <resourceGroup>rg-image-processing-dev</resourceGroup>
+                    <region>southafricanorth</region>
+
+                    <runtime>
+                        <os>windows</os>
+                        <javaVersion>21</javaVersion>
+                    </runtime>
+
+                    <stagingDirectory>
+                        ${project.build.directory}/azure-functions/${project.artifactId}
+                    </stagingDirectory>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>package</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

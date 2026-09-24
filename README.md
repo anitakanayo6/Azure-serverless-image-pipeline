@@ -10,11 +10,11 @@
 
  Overview
 
-This project demonstrates the implementation of a **serverless, event-driven image processing pipeline** using **Microsoft Azure** and **Java**.
+This project is a serverless image processing pipeline built using Microsoft Azure and Java.
 
-When an image is uploaded to **Azure Blob Storage**, a **Java Azure Function** is automatically triggered to generate a thumbnail and store it in a separate Blob Storage container.
+When an image is uploaded to the uploads Blob Storage container, an Azure Function is triggered automatically. The function processes the image using Thumbnailator and creates a smaller thumbnail in the thumbnails container.
 
-The solution showcases how cloud services can automate repetitive tasks using **serverless computing**, **event-driven architecture**, and **cloud storage integration**, eliminating the need for manual image processing.
+The solution showcases how cloud services can automate repetitive tasks using **serverless computing**, **event-driven architecture**, and **cloud storage integration**, eliminating the need for manual image processing files automatically without managing a traditional server.
 
 ---
 
@@ -26,11 +26,11 @@ Rather than manually creating thumbnails after every image upload, the applicati
 
 This project highlights the practical application of cloud computing principles including:
 
-- Serverless Computing
-- Event-Driven Architecture
-- Cloud Storage
-- Cloud Automation
-- Java Cloud Development
+Azure Services Used
+Azure Blob Storage
+Azure Functions
+Azure Function Blob Trigger
+Azure Function Blob Output
 
 ---
 
@@ -122,29 +122,136 @@ Azure Monitor
 
  Project Structure
 
+Azure Resources
+Resource Group
+
+rg-image-processing-dev
+
+Storage Account
+
+anitakanayoimagepipeline
+
+Blob Containers
+uploads
+thumbnails
+
+Azure Functions also creates internal containers used by the Functions runtime.
+
+Function App
+
+ImageFunction-run
+
+Function
+
+ImageFunction
+
+How It Works
+1. Upload an image
+
+An image is uploaded to the uploads container.
+
+Example:
+
+uploads/example.jpg
+2. Blob Trigger
+
+The Azure Function listens for new blobs using:
+
+uploads/{name}
+
+When a new image is detected, Azure automatically invokes the Java function.
+
+3. Image Processing
+
+The function receives the image as binary data and uses Thumbnailator to resize it.
+
+The thumbnail size is limited to:
+
+200 x 200 pixels
+
+The aspect ratio is preserved.
+
+4. Blob Output
+
+The generated thumbnail is passed to the Azure Blob Output binding.
+
+The output path is:
+
+thumbnails/{name}
+
+For example:
+
+uploads/example.jpg
+        ↓
+thumbnails/example.jpg
+Function Configuration
+
+The Blob Trigger uses:
+
+AzureWebJobsStorage
+
+for its storage connection.
+
+The trigger configuration is:
+
+uploads/{name}
+
+The output configuration is:
+
+thumbnails/{name}
+Project Structure
 Azure-serverless-image-pipeline/
 │
-├── function_app/
-│   ├── pom.xml
-│   ├── host.json
-│   ├── local.settings.json
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── com/
+│   │           └── anita/
+│   │               └── ImageFunction.java
 │   │
-│   └── src/
-│       └── main/
-│           └── java/
-│               └── com/
-│                   └── anita/
-│                       └── function/
-│                           ├── ImageProcessingFunction.java
-│                           ├── ThumbnailService.java
-│                           ├── StorageService.java
-│                           └── ImageUtils.java
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── anita/
+│                   └── function/
+│                       └── ImageFunctionTest.java
 │
-├── docs/
-│
-├── screenshots/
-│
-└── README.md
+├── architecture
+├── screenshot
+├── host.json
+├── pom.xml
+├── README.md
+└── .gitignore
+Testing
+
+The project includes a JUnit test for image thumbnail creation.
+
+The test verifies that an input image can be processed and that the resulting thumbnail has the expected dimensions.
+
+Run the tests with:
+
+mvn clean test
+
+Package the application with:
+
+mvn clean package
+Deployment
+
+The Azure Functions Maven plugin is used to deploy the application.
+
+mvn azure-functions:deploy
+
+After deployment, the Function App runs the ImageFunction in Azure.
+
+Expected Result
+
+When an image is uploaded to:
+
+uploads
+
+the Azure Function should automatically process it and create a thumbnail in:
+
+thumbnails
 
 
  Processing Workflow

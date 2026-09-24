@@ -4,7 +4,7 @@
 ![Java](https://img.shields.io/badge/Java-21-orange?logo=openjdk)
 ![Azure Functions](https://img.shields.io/badge/Azure%20Functions-Serverless-blue)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+
 
 ---
 

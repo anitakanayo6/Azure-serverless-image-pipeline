@@ -43,5 +43,7 @@ Visual documentation of the **Azure Serverless Image Processing Pipeline**.
 
 > Blob Trigger configured to detect new images uploaded to `uploads/{name}` and send the processed image to `thumbnails/{name}`.
 
+![WhatsApp Image 2026-09-25 at 02.44.31.jpeg](../../Downloads/WhatsApp%20Image%202026-09-25%20at%2002.44.31.jpeg)
+
 
 

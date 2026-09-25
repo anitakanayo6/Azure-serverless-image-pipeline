@@ -68,7 +68,9 @@ No manual intervention is required.
 
 I will add the (Architecture diagram  once the project is complete )
 
-```
+
+
+
 User
  │
  ▼

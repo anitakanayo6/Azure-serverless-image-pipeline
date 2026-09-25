@@ -67,7 +67,8 @@ No manual intervention is required.
  Architecture
 
 
-![WhatsApp Image 2026-09-25 at 02.44.31.jpeg](../../Downloads/WhatsApp%20Image%202026-09-25%20at%2002.44.31.jpeg)
+![Uploading image.png…]()
+
 
 
 
@@ -164,68 +165,7 @@ uploads/{name}
 
 When a new image is detected, Azure automatically invokes the Java function.
 
-3. Image Processing
 
-The function receives the image as binary data and uses Thumbnailator to resize it.
-
-The thumbnail size is limited to:
-
-200 x 200 pixels
-
-The aspect ratio is preserved.
-
-4. Blob Output
-
-The generated thumbnail is passed to the Azure Blob Output binding.
-
-The output path is:
-
-thumbnails/{name}
-
-For example:
-
-uploads/example.jpg
-        ↓
-thumbnails/example.jpg
-Function Configuration
-
-The Blob Trigger uses:
-
-AzureWebJobsStorage
-
-for its storage connection.
-
-The trigger configuration is:
-
-uploads/{name}
-
-The output configuration is:
-
-thumbnails/{name}
-Project Structure
-Azure-serverless-image-pipeline/
-│
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── com/
-│   │           └── anita/
-│   │               └── ImageFunction.java
-│   │
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── anita/
-│                   └── function/
-│                       └── ImageFunctionTest.java
-│
-├── architecture
-├── screenshot
-├── host.json
-├── pom.xml
-├── README.md
-└── .gitignore
-Testing
 
 The project includes a JUnit test for image thumbnail creation.
 
@@ -306,22 +246,6 @@ Azure Monitor Logs
 - Azure Monitor
 - Azure Resource Group
 
-
-
- Screenshots
-
-The following screenshots will be included as development progresses:
-
-- Azure Resource Group
-- Azure Storage Account
-- Uploads Container
-- Thumbnails Container
-- Azure Function
-- Azure Monitor Logs
-- Successful Thumbnail Generation
-
-
-
  Future Improvements
 
 - Support multiple image formats
@@ -332,18 +256,6 @@ The following screenshots will be included as development progresses:
 - REST API for image retrieval
 
 
-
-Learning Outcomes
-
-Through this project I am gaining practical experience in:
-
-- Microsoft Azure
-- Serverless Computing
-- Event-Driven Architecture
-- Java Cloud Development
-- Azure Blob Storage
-- Azure Functions
-- Cloud Automation
-- Monitoring Cloud Applications
+youtube link  = 
 
 WTC-XB2JSFAL

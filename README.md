@@ -256,6 +256,6 @@ Azure Monitor Logs
 - REST API for image retrieval
 
 
-youtube link  = https://canva.link/o4zqpyn847dfdlz
+youtube link  =[ https://canva.link/o4zqpyn847dfdlz](https://youtu.be/e4Cjv0bgpKI)
 
 WTC-XB2JSFAL
